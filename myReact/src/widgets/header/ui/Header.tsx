@@ -3,7 +3,7 @@ import './Header.css'
 
 export default function Header() {
   return (
-    <div className="sidebar-header" role="banner">
+    <div className="sidebar-header">
       <nav className="pill-nav" role="navigation" aria-label="primary">
         <Link to="/" className="pill-link active">Home</Link>
         <Link to="/articles" className="pill-link">Articles</Link>

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import './RegisterPage.css'
+import './ArcrticlesPage.css'
 
-export default function RegisterPage() {
+export default function ArticlesPage() {
   return (
     <header className="header">
       <nav>
