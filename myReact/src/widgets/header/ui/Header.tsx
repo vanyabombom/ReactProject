@@ -3,11 +3,12 @@ import './Header.css'
 
 export default function Header() {
   return (
-    <header className="header">
-      <nav>
-        <Link to="/">Главная</Link>
-        <Link to="/register">Регистрация</Link>
+    <div className="sidebar-header" role="banner">
+      <nav className="pill-nav" role="navigation" aria-label="primary">
+        <Link to="/" className="pill-link active">Home</Link>
+        <Link to="/articles" className="pill-link">Articles</Link>
+        <Link to="/about" className="pill-link">About</Link>
       </nav>
-    </header>
+    </div>
   )
 }
