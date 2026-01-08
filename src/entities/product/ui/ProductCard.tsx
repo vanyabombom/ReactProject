@@ -1,6 +1,7 @@
 import './ProductCard.css';
 import type { ProductType } from "../model/ProductType";
-
+import Label from '../../../features/label/Label';
+import LabelTypes from '../../../features/label/types/LabelTypes';
 import SiteButton from '../../../features/buttons/SiteButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
@@ -49,14 +50,14 @@ export default function ProductCard({ product }: { product: ProductType }) {
             <p className='two-line-ellipsis'>{product.name}</p>
         </Link>
         <div className='product-card-footer'>
-            {(product.stock ?? 1) == 0
-                ? <SiteButton buttonType={ButtonTypes.Gray}>
-                    <span>Відсутній</span>
+            {cart.items.find(ci => ci.product.id == product.id)
+                ? <SiteButton action={() => navigate("/cart")}>
+                    <i className="bi bi-cart-check"></i>&thinsp;
+                    <span>У кошику</span>
                 </SiteButton>
-                : cart.items.find(ci => ci.product.id == product.id)
-                    ? <SiteButton action={() => navigate("/cart")}>
-                        <i className="bi bi-cart-check"></i>&thinsp;
-                        <span>У кошику</span>
+                : (product.stock ?? 1) == 0
+                    ? <SiteButton buttonType={ButtonTypes.Gray}>
+                        <span>Нема</span>
                     </SiteButton>
                     : <SiteButton action={buyClick} >
                         <i className="bi bi-cart"></i>&thinsp;

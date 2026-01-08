@@ -8,23 +8,26 @@ export default function Privacy() {
     }, []);
 
     return <>
-        return <>
-            <h1 className="display-4"><i className="bi bi-shield-check"></i> Політика конфіденційності</h1>
-            <div className="privacy-content" style={{ marginTop: '2rem' }}>
-                <p>Останнє оновлення: Січень 2026</p>
+        <h1 className="display-4"><i className="bi bi-shield-check"></i> Privacy Policy</h1>
+        <div className="privacy-content" style={{ marginTop: '2rem' }}>
+            <p>Last updated: January 2026</p>
 
-                <h2>1. Вступ</h2>
-                <p>Ласкаво просимо до 4epuShop. Ми поважаємо вашу конфіденційність і прагнемо захищати ваші персональні дані.</p>
+            <h2>1. Introduction</h2>
+            <p>Welcome to 4epuShop. We respect your privacy and are committed to protecting your personal data.</p>
 
-                <h2>2. Дані, які ми збираємо</h2>
-                <p>Ми можемо збирати персональну ідентифікаційну інформацію (Ім'я, електронна пошта, номер телефону тощо), коли ви відвідуєте наш сайт або робите покупку.</p>
+            <h2>2. Data We Collect</h2>
+            <p>We may collect personal identification information (Name, email address, phone number, etc.) when you visit our site or make a purchase.</p>
 
-                <h2>3. Як ми використовуємо ваші дані</h2>
-                <p>Ми використовуємо ваші дані для обробки замовлень, керування вашим обліковим записом та надсилання спеціальних пропозицій щодо інших продуктів та послуг, які можуть вас зацікавити.</p>
+            <h2>3. How We Use Your Data</h2>
+            <p>We use your data to process orders, manage your account, and email you with special offers on other products and services we think you might like.</p>
 
-                <h2>4. Зв'яжіться з нами</h2>
-                <p>Якщо у вас є будь-які запитання щодо нашої політики конфіденційності, даних, які ми зберігаємо про вас, або ви хочете скористатися одним із ваших прав на захист даних, будь ласка, зв'яжіться з нами.</p>
-            </div>
-        </>;
+            <h2>4. Contact Us</h2>
+            <p>If you have any questions about our privacy policy, the data we hold on you, or you would like to exercise one of your data protection rights, please do not hesitate to contact us.</p>
+        </div>
     </>;
 }
+/*
+Д.З. Впровадити у власний курсовий проєкт 
+систему прелоадера
+Прикладати скріншоти проєкту
+*/

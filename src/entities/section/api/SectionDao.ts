@@ -14,7 +14,7 @@ export default class SectionDao {
                     {
                         "imageUrl": "/img/iphone.png",
                         "title": "iPhone",
-                        "slug": "iphone"
+                        "slug": "iphonefull"
                     },
                     {
                         "imageUrl": "/img/google-pixel.png",
@@ -38,7 +38,7 @@ export default class SectionDao {
                     },
                     {
                         "imageUrl": "/img/consoles.webp",
-                        "title": "Ігрові консолі",
+                        "title": "Консоли",
                         "slug": "consoles"
                     },
                     {
@@ -58,7 +58,7 @@ export default class SectionDao {
                     },
                     {
                         "imageUrl": "/img/apple_products.png",
-                        "title": "Вживана техніка Apple",
+                        "title": "б/у Apple",
                         "slug": "applebw"
                     },
                     {
@@ -83,12 +83,12 @@ export default class SectionDao {
                     },
                     {
                         "imageUrl": "/img/monitor.png",
-                        "title": "Монітори",
+                        "title": "Мониторы",
                         "slug": "monitors"
                     },
                     {
                         "imageUrl": "/img/action_camera.png",
-                        "title": "Екшн-камери",
+                        "title": "Экшн камеры",
                         "slug": "action-cameras"
                     },
                     {
@@ -108,6 +108,7 @@ export default class SectionDao {
     }
 
     static async getSection(slug: string) {
+        // Ensure sections are loaded to get the correct image
         const sections = await SectionDao.getSections();
         const currentSection = sections.find(s => s.slug === slug);
         const sectionImg = currentSection?.imageUrl || "/img/wide-applefull.png.webp";
@@ -118,15 +119,8 @@ export default class SectionDao {
                 if (slug === 'apple') {
                     const { allProducts } = await import('../../product/api/ProductDao');
                     resolve({
-                        products: allProducts
-                    });
-                    return;
-                }
 
-                if (slug === 'iphone') {
-                    const { allProducts } = await import('../../product/api/ProductDao');
-                    resolve({
-                        products: allProducts.filter(p => p.name.toLowerCase().includes('iphone'))
+                        products: allProducts
                     });
                     return;
                 }
@@ -164,7 +158,7 @@ export default class SectionDao {
                     return;
                 }
 
-
+                // Generate dummy products for other categories
                 const dummyProducts = Array.from({ length: 6 }).map((_, i) => ({
                     id: `${slug}-${i}`,
                     name: `${slug.charAt(0).toUpperCase() + slug.slice(1)} Product ${i + 1}`,

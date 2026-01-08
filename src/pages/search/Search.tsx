@@ -25,7 +25,7 @@ export default function Search() {
     }, [slug]);
 
     return <>
-        <h1>Пошук</h1>
+        <h1>Search</h1>
         За запитом '{search}'
         <br />
         {result != null && <>

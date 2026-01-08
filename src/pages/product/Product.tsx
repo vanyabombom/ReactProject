@@ -48,9 +48,9 @@ export default function Product() {
         }
     }, [slug]);
 
-    return pageData === undefined ? <h1>Завантаження...</h1>
+    return pageData === undefined ? <h1>Loading...</h1>
         : isBusy ? <></>
-            : pageData === null ? <h1>Не знайдено</h1>
+            : pageData === null ? <h1>Not Found</h1>
                 : <>
                     <div className="product-container">
                         <div className="product-image">
@@ -61,20 +61,20 @@ export default function Product() {
                             <div className="product-status">
                                 <div className='product-rating'>★★★★★ ({pageData.product.rating})</div>
                                 {pageData.product.stock === 0
-                                    ? <div className="product-stock stock-none">Передзамовлення</div>
+                                    ? <div className="product-stock stock-none">Pre-order</div>
                                     : pageData.product.stock && pageData.product.stock > 0 && pageData.product.stock < 5
-                                        ? <div className="product-stock stock-low">Закінчується</div>
-                                        : <div className="product-stock stock-available">В наявності</div>
+                                        ? <div className="product-stock stock-low">Low Stock</div>
+                                        : <div className="product-stock stock-available">In Stock</div>
                                 }
                             </div>
 
                             <div className="price-block">
-                                <div className="price-old">{pageData.product.price + (pageData?.product.discount ?? 0)} грн</div>
-                                <div className="price-new">{pageData.product.price} грн</div>
+                                <div className="price-old">{pageData.product.price + (pageData?.product.discount ?? 0)} UAH</div>
+                                <div className="price-new">{pageData.product.price} UAH</div>
                             </div>
 
                             <button className="btn btn-primary" style={{ width: 'fit-content' }} onClick={() => addToCart()}>
-                                Купити <i className="bi bi-cart-plus ms-2"></i>
+                                Add to Cart <i className="bi bi-cart-plus ms-2"></i>
                             </button>
                         </div>
                     </div>
