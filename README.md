@@ -1,6 +1,6 @@
-# CyberTech Store (Commerce KNP231)
+# 4epuShop
 
-Welcome to the **CyberTech Store**, a cutting-edge e-commerce platform designed with a "Neo-Future" aesthetic. This project showcases a modern frontend architecture built with React 19 and TypeScript, featuring a sleek, dark-themed UI with glassmorphism elements, dynamic product routing, and specialized features like a Trade-In calculator.
+Welcome to the 4epuShop, a cutting-edge e-commerce platform designed with a "Neo-Future" aesthetic. This project showcases a modern frontend architecture built with React 19 and TypeScript, featuring a sleek, light-themed UI with glassmorphism elements, dynamic product routing, and specialized features like a Trade-In calculator.
 
 ## 🚀 Tech Stack
 
@@ -8,8 +8,7 @@ Welcome to the **CyberTech Store**, a cutting-edge e-commerce platform designed 
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Build Tool**: [Vite](https://vitejs.dev/)
 - **Routing**: [React Router DOM v7](https://reactrouter.com/)
-- **Styling**: Native CSS with variables, Flexbox/Grid, and extensive use of glassmorphism/gradients.
-- **Linting**: ESLint with TypeScript support.
+- **Styling**: Native CSS with variables, Flexbox/Grid.
 
 ## ✨ Key Features
 
