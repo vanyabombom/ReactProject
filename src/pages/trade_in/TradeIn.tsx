@@ -20,27 +20,27 @@ export default function TradeIn() {
 
 
     const handleSubmit = () => {
-        alert("Trade-in request submitted! We will contact you shortly.");
+        alert("Запит на Trade-in відправлено! Ми зв'яжемося з вами найближчим часом.");
     };
 
     return (
         <div className="trade-in-container">
             <div className="trade-in-header" data-aos="fade-down">
-                <h1>Trade-in Calculator</h1>
-                <p className="hero-subtitle">Upgrade your device. Get credit for your old one.</p>
+                <h1>Калькулятор Trade-in</h1>
+                <p className="hero-subtitle">Оновіть свій пристрій. Отримайте кредит за старий.</p>
             </div>
 
             <div className="trade-in-content">
                 <div className="trade-in-card" data-aos="fade-right">
-                    <h2><i className="bi bi-phone"></i> Your Current Device</h2>
+                    <h2><i className="bi bi-phone"></i> Ваш поточний пристрій</h2>
                     <div className="select-group">
-                        <label>Select model</label>
+                        <label>Оберіть модель</label>
                         <select
                             className="device-select"
                             value={selectedOldId}
                             onChange={(e) => setSelectedOldId(e.target.value)}
                         >
-                            <option value="">Select a device...</option>
+                            <option value="">Оберіть пристрій...</option>
                             {allProducts.map(p => (
                                 <option key={p.id} value={p.id}>
                                     {p.name}
@@ -54,22 +54,22 @@ export default function TradeIn() {
                         <div className="device-preview">
                             <img src={oldProduct.imageUrl} alt={oldProduct.name} />
                             <div className="price-value">
-                                Estimated Value: <span style={{ color: '#4ade80' }}>{tradeInValue.toLocaleString()} UAH</span>
+                                Оціночна вартість: <span style={{ color: '#4ade80' }}>{tradeInValue.toLocaleString()} грн</span>
                             </div>
                         </div>
                     )}
                 </div>
 
                 <div className="trade-in-card" data-aos="fade-left">
-                    <h2><i className="bi bi-bag-plus"></i> Device You Want</h2>
+                    <h2><i className="bi bi-bag-plus"></i> Бажаний пристрій</h2>
                     <div className="select-group">
-                        <label>Select model</label>
+                        <label>Оберіть модель</label>
                         <select
                             className="device-select"
                             value={selectedNewId}
                             onChange={(e) => setSelectedNewId(e.target.value)}
                         >
-                            <option value="">Select a device...</option>
+                            <option value="">Оберіть пристрій...</option>
                             {allProducts.map(p => (
                                 <option key={p.id} value={p.id}>
                                     {p.name}
@@ -81,41 +81,41 @@ export default function TradeIn() {
                     {newProduct && (
                         <div className="device-preview">
                             <img src={newProduct.imageUrl} alt={newProduct.name} />
-                            <div className="price-value">Store Price: {newProduct.price.toLocaleString()} UAH</div>
+                            <div className="price-value">Ціна в магазині: {newProduct.price.toLocaleString()} грн</div>
                         </div>
                     )}
                 </div>
 
                 {oldProduct && newProduct && (
                     <div className="trade-in-summary">
-                        <h2>Summary</h2>
+                        <h2>Підсумок</h2>
 
                         {oldProduct.price > newProduct.price ? (
                             <div className="error-message" style={{ color: '#ff4444', textAlign: 'center', padding: '1rem', border: '1px solid #ff4444', borderRadius: '8px', background: 'rgba(255, 68, 68, 0.1)' }}>
                                 <i className="bi bi-exclamation-triangle" style={{ fontSize: '2rem', display: 'block', marginBottom: '0.5rem' }}></i>
-                                You cannot trade-in a more expensive device for a cheaper one.
+                                Ви не можете обміняти дорожчий пристрій на дешевший.
                                 <br />
-                                Please select a higher value device for your upgrade.
+                                Будь ласка, оберіть дорожчий пристрій для оновлення.
                             </div>
                         ) : (
                             <>
                                 <div className="calculation-row">
-                                    <span className="price-label">New Device Price</span>
-                                    <span className="price-value">{newProduct.price.toLocaleString()} UAH</span>
+                                    <span className="price-label">Ціна нового пристрою</span>
+                                    <span className="price-value">{newProduct.price.toLocaleString()} грн</span>
                                 </div>
 
                                 <div className="calculation-row">
-                                    <span className="price-label">Trade-in Credit (-10%)</span>
-                                    <span className="price-value" style={{ color: '#4ade80' }}>- {tradeInValue.toLocaleString()} UAH</span>
+                                    <span className="price-label">Кредит Trade-in (-10%)</span>
+                                    <span className="price-value" style={{ color: '#4ade80' }}>- {tradeInValue.toLocaleString()} грн</span>
                                 </div>
 
                                 <div className="calculation-row">
-                                    <span className="price-label">You Pay Only</span>
-                                    <span className="final-price">{finalPrice.toLocaleString()} UAH</span>
+                                    <span className="price-label">До сплати</span>
+                                    <span className="final-price">{finalPrice.toLocaleString()} грн</span>
                                 </div>
 
                                 <button className="trade-btn" onClick={handleSubmit}>
-                                    Request Trade-in
+                                    Замовити обмін
                                 </button>
                             </>
                         )}

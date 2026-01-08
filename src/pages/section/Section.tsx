@@ -19,7 +19,7 @@ export default function Section() {
 
     const filteredProducts = useMemo(() => {
         if (!pageData) return [];
-        return ProductDao.applyFilters(pageData.products);
+        return ProductDao.applyFilters(pageData.products, filterState);
     }, [pageData, filterState]);
 
     const handleFilterChange = (key: keyof typeof filterState, value: any) => {

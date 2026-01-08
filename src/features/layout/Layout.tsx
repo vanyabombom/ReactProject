@@ -1,24 +1,13 @@
-import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import './ui/Layout.css';
-
 import { useContext, useEffect, } from "react";
-import type { FormEventHandler } from "react";
 import { AppContext } from "../app_context/AppContext";
 
 export default function Layout() {
     const { user, cart } = useContext(AppContext);
     const profileTitle = user == null ? "Вхід" : "Кабінет";
-    const navigate = useNavigate();
     const location = useLocation();
 
-    const onSearch: FormEventHandler<HTMLFormElement> = (e) => {
-        e.preventDefault();
-        const data = (new FormData(e.target as HTMLFormElement).get("search"))?.toString();
-        console.log(data);
-        const slug = encodeURIComponent(data ?? "");
-        console.log(slug);
-        navigate(`/search/${slug}`);
-    };
 
     useEffect(() => {
         // @ts-ignore
@@ -48,15 +37,15 @@ export default function Layout() {
                 </Link>
 
                 <Link to="/services" className="nav-link-custom">
-                    Services
+                    Послуги
                 </Link>
 
                 <Link to="/auth" className="nav-link-custom" title={profileTitle}>
                     <i className="bi bi-person-circle" style={{ fontSize: '1.2rem', marginRight: '5px' }}></i>
-                    {user ? user.name : "Sign In"}
+                    {user ? user.name : "Увійти"}
                 </Link>
 
-                <Link to="/cart" className="nav-link-custom position-relative" title="Cart">
+                <Link to="/cart" className="nav-link-custom position-relative" title="Кошик">
                     <i className="bi bi-bag" style={{ fontSize: '1.2rem' }}></i>
                     {cart.items.length > 0 &&
                         <span style={{
@@ -81,7 +70,7 @@ export default function Layout() {
                     <div className="footer-brand">
                         <img src="/img/black-logo.png" alt="4epuShop Logo" className="footer-logo" />
                         <p className="footer-desc">
-                            Your destination for premium electronics. Discover the latest devices and repair services at 4epuShop.
+                            Ваше місце для преміальної електроніки. Відкрийте для себе найновіші пристрої та послуги ремонту в 4epuShop.
                         </p>
                         <div className="social-links">
                             <a href="#" aria-label="Instagram"><i className="bi bi-instagram"></i></a>
@@ -91,7 +80,7 @@ export default function Layout() {
                     </div>
 
                     <div className="footer-column">
-                        <h3>Shop</h3>
+                        <h3>Магазин</h3>
                         <ul>
                             <li><Link to="/section/iphone">iPhone</Link></li>
                             <li><Link to="/section/mac">Mac</Link></li>
@@ -101,27 +90,27 @@ export default function Layout() {
                     </div>
 
                     <div className="footer-column">
-                        <h3>Company</h3>
+                        <h3>Компанія</h3>
                         <ul>
-                            <li><Link to="/services">Services</Link></li>
+                            <li><Link to="/services">Послуги</Link></li>
                             <li><Link to="/trade-in">Trade-In</Link></li>
-                            <li><Link to="/about">About Us</Link></li>
-                            <li><Link to="/contact">Contact</Link></li>
+                            <li><Link to="/about">Про нас</Link></li>
+                            <li><Link to="/contact">Контакти</Link></li>
                         </ul>
                     </div>
 
                     <div className="footer-column">
-                        <h3>Legal</h3>
+                        <h3>Інформація</h3>
                         <ul>
-                            <li><Link to="/privacy">Privacy Policy</Link></li>
-                            <li><Link to="/terms">Terms of Service</Link></li>
-                            <li><Link to="/warranty">Warranty</Link></li>
+                            <li><Link to="/privacy">Політика конфіденційності</Link></li>
+                            <li><Link to="/terms">Умови обслуговування</Link></li>
+                            <li><Link to="/warranty">Гарантія</Link></li>
                         </ul>
                     </div>
                 </div>
 
                 <div className="footer-bottom">
-                    <p>&copy; 2026 4epuShop. All rights reserved.</p>
+                    <p>&copy; 2026 4epuShop. Всі права захищено.</p>
                 </div>
             </div>
         </footer>

@@ -3,14 +3,14 @@ import './ui/Services.css';
 
 export default function Services() {
     const handleBook = (service: string) => {
-        alert(`Booking request for ${service} received! We will contact you shortly.`);
+        alert(`Запит на бронювання ${service} отримано! Ми зв'яжемося з вами найближчим часом.`);
     };
 
     return (
         <div className="services-container">
             <div className="services-header">
-                <h1 className="services-title" data-aos="fade-right">Our Services</h1>
-                <p className="services-subtitle" data-aos="fade-left">Professional solutions for your tech needs</p>
+                <h1 className="services-title" data-aos="fade-right">Наші послуги</h1>
+                <p className="services-subtitle" data-aos="fade-left">Професійні рішення для вашої техніки</p>
             </div>
 
             <div className="services-grid">
@@ -19,23 +19,23 @@ export default function Services() {
                     <div className="icon-wrapper">
                         <i className="bi bi-tools"></i>
                     </div>
-                    <h2>Device Repair</h2>
-                    <p>Professional repair services for iPhone, iPad, Mac, and Apple Watch using original parts.</p>
+                    <h2>Ремонт пристроїв</h2>
+                    <p>Професійний ремонт iPhone, iPad, Mac та Apple Watch з використанням оригінальних запчастин.</p>
                     <div className="service-price-list">
                         <div className="price-item">
-                            <span>Screen Replacement</span>
-                            <span>from 1200 UAH</span>
+                            <span>Заміна екрану</span>
+                            <span>від 1200 грн</span>
                         </div>
                         <div className="price-item">
-                            <span>Battery Replacement</span>
-                            <span>from 800 UAH</span>
+                            <span>Заміна акумулятора</span>
+                            <span>від 800 грн</span>
                         </div>
                         <div className="price-item">
-                            <span>Diagnostic</span>
-                            <span>Free</span>
+                            <span>Діагностика</span>
+                            <span>Безкоштовно</span>
                         </div>
                     </div>
-                    <button className="book-btn" onClick={() => handleBook("Repair")}>Book Repair</button>
+                    <button className="book-btn" onClick={() => handleBook("Repair")}>Замовити ремонт</button>
                 </div>
 
                 {/* Setup Service */}
@@ -43,23 +43,23 @@ export default function Services() {
                     <div className="icon-wrapper">
                         <i className="bi bi-gear-wide-connected"></i>
                     </div>
-                    <h2>Setup & Transfer</h2>
-                    <p>Get your new device ready to use properly. Secure data transfer and account configuration.</p>
+                    <h2>Налаштування та перенесення</h2>
+                    <p>Підготуйте новий пристрій до використання. Безпечне перенесення даних та налаштування облікових записів.</p>
                     <div className="service-price-list">
                         <div className="price-item">
-                            <span>Full Setup</span>
-                            <span>500 UAH</span>
+                            <span>Повне налаштування</span>
+                            <span>500 грн</span>
                         </div>
                         <div className="price-item">
-                            <span>Data Transfer</span>
-                            <span>400 UAH</span>
+                            <span>Перенесення даних</span>
+                            <span>400 грн</span>
                         </div>
                         <div className="price-item">
-                            <span>iOS Update</span>
-                            <span>200 UAH</span>
+                            <span>Оновлення iOS</span>
+                            <span>200 грн</span>
                         </div>
                     </div>
-                    <button className="book-btn" onClick={() => handleBook("Setup")}>Book Setup</button>
+                    <button className="book-btn" onClick={() => handleBook("Setup")}>Замовити налаштування</button>
                 </div>
 
                 {/* Consultation */}
@@ -67,23 +67,23 @@ export default function Services() {
                     <div className="icon-wrapper">
                         <i className="bi bi-chat-square-text"></i>
                     </div>
-                    <h2>Expert Consultation</h2>
-                    <p>Need help choosing? Our experts will help you find the perfect device for your needs.</p>
+                    <h2>Експертна консультація</h2>
+                    <p>Потрібна допомога у виборі? Наші експерти допоможуть знайти ідеальний пристрій для ваших потреб.</p>
                     <div className="service-price-list">
                         <div className="price-item">
-                            <span>Device Selection</span>
-                            <span>Free</span>
+                            <span>Підбір пристрою</span>
+                            <span>Безкоштовно</span>
                         </div>
                         <div className="price-item">
-                            <span>Ecosystem Training</span>
-                            <span>600 UAH/hr</span>
+                            <span>Навчання екосистемі</span>
+                            <span>600 грн/год</span>
                         </div>
                         <div className="price-item">
-                            <span>Technical Support</span>
-                            <span>300 UAH</span>
+                            <span>Технічна підтримка</span>
+                            <span>300 грн</span>
                         </div>
                     </div>
-                    <button className="book-btn" onClick={() => handleBook("Consultation")}>Book Consultation</button>
+                    <button className="book-btn" onClick={() => handleBook("Consultation")}>Замовити консультацію</button>
                 </div>
             </div>
         </div>

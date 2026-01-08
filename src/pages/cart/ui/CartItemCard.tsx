@@ -66,8 +66,8 @@ export default function CartItemCard({ cartItem }: { cartItem: CartItem }) {
 
         <div className="cart-item-info">
             <h3>{cartItem.product.name}</h3>
-            <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Guarantee 1 year: {Math.round(cartItem.price * 0.1).toMoney()} UAH</div>
-            <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Guarantee 2 years: {Math.round(cartItem.price * 0.15).toMoney()} UAH</div>
+            <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Гарантія 1 рік: {Math.round(cartItem.price * 0.1).toMoney()} грн</div>
+            <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Гарантія 2 роки: {Math.round(cartItem.price * 0.15).toMoney()} грн</div>
         </div>
 
         <div className="cart-item-actions">
@@ -77,10 +77,10 @@ export default function CartItemCard({ cartItem }: { cartItem: CartItem }) {
         </div>
 
         <div className="cart-item-price">
-            <div>{cartItem.price.toMoney()} UAH</div>
+            <div>{cartItem.price.toMoney()} грн</div>
             {cartItem.product.discount &&
                 <div style={{ textDecoration: 'line-through', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-                    {(cartItem.price + (cartItem.product.discount ?? 0) * cartItem.cnt).toMoney()} UAH
+                    {(cartItem.price + (cartItem.product.discount ?? 0) * cartItem.cnt).toMoney()} грн
                 </div>
             }
         </div>

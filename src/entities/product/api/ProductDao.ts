@@ -1,48 +1,48 @@
 import type ProductPageType from "../model/ProductPageType";
 const p1 = {
     id: "1",
-    name: "Apple iPhone 17 Pro Max 256GB (Cosmic Orange)",
-    slug: "apple-iphone-17-pro-max-256gb-orange",
-    price: 73499, discount: 6050, rating: 5,
-    imageUrl: "/img/CosmicOrange-1397x1397.png.webp",
+    name: "Apple iPhone 5",
+    slug: "apple-iphone-5",
+    price: 3, discount: 1, rating: 5,
+    imageUrl: "/img/iphone5.png",
     stock: 10
 };
-const p2 = {
-    id: "2", name: "Навушники Apple AirPods Pro 3 (MFHP4) (2025)",
-    slug: "navushnyky-apple-airpods-pro-3",
-    price: 11899, discount: 2200, rating: 5,
-    imageUrl: "/img/airpods.png",
-    stock: 3
-};
 const p3 = {
-    id: "814897", name: "Apple iPhone 15 256GB (Pink)",
-    slug: "apple-iphone-15-256gb--pink-",
-    price: 37999, discount: 2800, rating: 5,
-    imageUrl: "/img/pink (1)-1397x1397.jpeg.webp",
+    id: "814897", name: "Apple iPhone 16 Pro Max",
+    slug: "apple-iphone-16-pro-max",
+    price: 67999, discount: 2800, rating: 5,
+    imageUrl: "/img/iphone-16-promax.png",
     stock: 0
 };
 const p4 = {
-    id: "842447", name: "MacBook Air 13 Retina, Midnight, 256GB, 10 CPU / 8 GPU, 16GB RAM with Apple M4 (2025) (MW123)",
-    slug: "macbook-air-13-retina-midnight-256gb-8-cpu--10-gpu-16gb-ram-with-apple-m4-2025-mw123",
+    id: "842447", name: "MacBook Air 13",
+    slug: "macbook-air-13",
     price: 41999, discount: 8000, rating: 1,
-    imageUrl: "/img/midnight-1-1397x1397.png.webp",
+    imageUrl: "/img/midnight-1-1397x1397.png",
     stock: 10
 };
 const p5 = {
-    id: "855417", name: "Apple iPhone 17 Pro Max 512GB (Deep Blue)",
-    slug: "apple-iphone-17-pro-max-512gb-dark-blue",
+    id: "855417", name: "Apple iPhone 17 Pro Max ",
+    slug: "apple-iphone-17-pro-max",
     price: 83699, discount: 13050, rating: 3,
-    imageUrl: "/img/deepBlue-(4)-1397x1397.png.webp",
+    imageUrl: "/img/deepBlue-_4_-1397x1397.png-removebg-preview.png",
     stock: 3
 };
 const p6 = {
-    id: "842247", name: "Apple iPad 11 128GB, Wi-Fi (Silver) (2025) (MD3Y4)",
-    slug: "apple-ipad-11-128gb-wi-fi-silver-2025-md3y4",
+    id: "842247", name: "Apple iPad 11 ",
+    slug: "apple-ipad-11",
     price: 17199, discount: 1300, rating: 5,
-    imageUrl: "/img/ipad-2022-hero-silver-wifi-selec-1397x1397.jpg.webp",
+    imageUrl: "/img/ipad-2022-hero-silver-wifi-selec-1397x1397.jpg-removebg-preview.png",
     stock: 10
 };
-export const allProducts = [p1, p2, p3, p4, p5, p6];
+const p7 = {
+    id: "855418", name: "Apple iPhone 17 Pro Max 256GB (Cosmic Orange)",
+    slug: "apple-iphone-17-pro-max-256gb-cosmic-orange",
+    price: 83699, discount: 13050, rating: 5,
+    imageUrl: "/img/CosmicOrange-1397x1397.png.webp",
+    stock: 5
+};
+export const allProducts = [p1, p3, p4, p5, p6, p7];
 // 
 
 export interface ProductFilters {
@@ -60,12 +60,12 @@ export default class ProductDao {
         inStockOnly: false
     };
 
-    static applyFilters(products: Array<any>): Array<any> {
+    static applyFilters(products: Array<any>, filters: ProductFilters = ProductDao.filters): Array<any> {
         return products.filter(p => {
-            const matchesSearch = p.name.toLowerCase().includes(ProductDao.filters.search.toLowerCase());
-            const matchesMinPrice = p.price >= ProductDao.filters.minPrice;
-            const matchesMaxPrice = p.price <= ProductDao.filters.maxPrice;
-            const matchesStock = ProductDao.filters.inStockOnly ? (p.stock ?? 1) > 0 : true;
+            const matchesSearch = p.name.toLowerCase().includes(filters.search.toLowerCase());
+            const matchesMinPrice = p.price >= filters.minPrice;
+            const matchesMaxPrice = p.price <= filters.maxPrice;
+            const matchesStock = filters.inStockOnly ? (p.stock ?? 1) > 0 : true;
             return matchesSearch && matchesMinPrice && matchesMaxPrice && matchesStock;
         });
     }
@@ -73,7 +73,7 @@ export default class ProductDao {
     static getProduct(slugOrId: string): Promise<ProductPageType> {
         return new Promise(async (resolve, _) => { // async wrapper
             setTimeout(async () => {
-                const allProducts = [p1, p2, p3, p4, p5, p6];
+                const allProducts = [p1, p3, p4, p5, p6, p7];
                 const p = allProducts.find(p => p.slug == slugOrId || p.id == slugOrId);
 
                 if (p) {
@@ -83,7 +83,7 @@ export default class ProductDao {
                     });
                 } else {
                     // Dynamic product handling
-                    const namePart = slugOrId.split('-product-')[0] || "Unknown";
+                    const namePart = slugOrId.split('-product-')[0] || "Невідомо";
 
                     // Try to find image from section
                     const { default: SectionDao } = await import('../../section/api/SectionDao');
@@ -95,7 +95,7 @@ export default class ProductDao {
 
                     const dynamicProduct = {
                         id: slugOrId,
-                        name: `${formattedName} Product`,
+                        name: `${formattedName} Товар`,
                         slug: slugOrId,
                         price: 9999,
                         discount: 0,

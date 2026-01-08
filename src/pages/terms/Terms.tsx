@@ -6,21 +6,23 @@ export default function Terms() {
     }, []);
 
     return <>
-        <h1 className="display-4"><i className="bi bi-file-earmark-text"></i> Terms of Service</h1>
-        <div className="terms-content" style={{ marginTop: '2rem' }}>
-            <p>Last updated: January 2026</p>
+        return <>
+            <h1 className="display-4"><i className="bi bi-file-earmark-text"></i> Умови обслуговування</h1>
+            <div className="terms-content" style={{ marginTop: '2rem' }}>
+                <p>Останнє оновлення: Січень 2026</p>
 
-            <h2>1. Agreement to Terms</h2>
-            <p>By accessing our website, you agree to be bound by these Terms of Service and to comply with all applicable laws and regulations.</p>
+                <h2>1. Згода з умовами</h2>
+                <p>Доступаючись до нашого веб-сайту, ви погоджуєтесь дотримуватися цих Умов обслуговування та всіх застосовних законів і правил.</p>
 
-            <h2>2. Intellectual Property</h2>
-            <p>The content, organization, graphics, design, compilation, and other matters related to the Site are protected under applicable copyrights and other proprietary (including but not limited to intellectual property) rights.</p>
+                <h2>2. Інтелектуальна власність</h2>
+                <p>Контент, організація, графіка, дизайн, компіляція та інші питання, пов'язані з Сайтом, захищені застосовними авторськими правами та іншими правами власності.</p>
 
-            <h2>3. Purchases</h2>
-            <p>If you wish to purchase any product or service made available through the Service, you may be asked to supply certain information relevant to your Purchase including, without limitation, your credit card number, the expiration date of your credit card, your billing address, and your shipping information.</p>
+                <h2>3. Покупки</h2>
+                <p>Якщо ви бажаєте придбати будь-який продукт або послугу, що надаються через Сервіс, вас можуть попросити надати певну інформацію, що стосується вашої Покупки, включаючи, без обмежень, номер вашої кредитної картки, термін дії вашої кредитної картки, вашу адресу для виставлення рахунку та інформацію про доставку.</p>
 
-            <h2>4. Termination</h2>
-            <p>We may terminate or suspend access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</p>
-        </div>
+                <h2>4. Припинення</h2>
+                <p>Ми можемо припинити або призупинити доступ до нашого Сервісу негайно, без попереднього повідомлення або відповідальності, з будь-якої причини, включаючи, без обмежень, якщо ви порушуєте Умови.</p>
+            </div>
+        </>;
     </>;
 }

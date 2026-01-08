@@ -12,6 +12,21 @@ export default class SectionDao {
             else setTimeout(() => {
                 SectionDao.cacheSections = [
                     {
+                        "imageUrl": "/img/iphone.png",
+                        "title": "iPhone",
+                        "slug": "iphone"
+                    },
+                    {
+                        "imageUrl": "/img/google-pixel.png",
+                        "title": "Смартфони",
+                        "slug": "android"
+                    },
+                    {
+                        "imageUrl": "/img/laptops.avif",
+                        "title": "Ноутбуки",
+                        "slug": "laptops"
+                    },
+                    {
                         "imageUrl": "/img/apple.png",
                         "title": "Apple",
                         "slug": "apple"
@@ -22,19 +37,9 @@ export default class SectionDao {
                         "slug": "airpods"
                     },
                     {
-                        "imageUrl": "/img/iphone.png",
-                        "title": "iPhone",
-                        "slug": "iphonefull"
-                    },
-                    {
-                        "imageUrl": "/img/apple_products.png",
-                        "title": "б/у Apple",
-                        "slug": "applebw"
-                    },
-                    {
-                        "imageUrl": "/img/google-pixel.png",
-                        "title": "Смартфони",
-                        "slug": "android"
+                        "imageUrl": "/img/consoles.webp",
+                        "title": "Ігрові консолі",
+                        "slug": "consoles"
                     },
                     {
                         "imageUrl": "/img/dyson.webp",
@@ -42,9 +47,19 @@ export default class SectionDao {
                         "slug": "dysonfull"
                     },
                     {
+                        "imageUrl": "/img/TV.webp",
+                        "title": "Телевізори",
+                        "slug": "tvs"
+                    },
+                    {
                         "imageUrl": "/img/watches.png",
-                        "title": "Garmin",
+                        "title": "Смарт годинники",
                         "slug": "garminfull"
+                    },
+                    {
+                        "imageUrl": "/img/apple_products.png",
+                        "title": "Вживана техніка Apple",
+                        "slug": "applebw"
                     },
                     {
                         "imageUrl": "/img/kitchen.png",
@@ -57,39 +72,9 @@ export default class SectionDao {
                         "slug": "home-carefull"
                     },
                     {
-                        "imageUrl": "/img/keyboard_and_mouse.png",
-                        "title": "Клавіатури та миші",
-                        "slug": "micefull"
-                    },
-                    {
-                        "imageUrl": "/img/accessories.png",
-                        "title": "Аксесуари",
-                        "slug": "acsfull"
-                    },
-                    {
                         "imageUrl": "/img/headphones.webp",
                         "title": "Навушники",
                         "slug": "headphonesfull"
-                    },
-                    {
-                        "imageUrl": "/img/consoles.webp",
-                        "title": "Консоли",
-                        "slug": "consoles"
-                    },
-                    {
-                        "imageUrl": "/img/laptops.avif",
-                        "title": "Ноутбуки",
-                        "slug": "laptops"
-                    },
-                    {
-                        "imageUrl": "/img/TV.webp",
-                        "title": "Телевизори",
-                        "slug": "tvs"
-                    },
-                    {
-                        "imageUrl": "/img/action_camera.png",
-                        "title": "Экшн камеры",
-                        "slug": "action-cameras"
                     },
                     {
                         "imageUrl": "/img/camera.webp",
@@ -98,8 +83,23 @@ export default class SectionDao {
                     },
                     {
                         "imageUrl": "/img/monitor.png",
-                        "title": "Мониторы",
+                        "title": "Монітори",
                         "slug": "monitors"
+                    },
+                    {
+                        "imageUrl": "/img/action_camera.png",
+                        "title": "Екшн-камери",
+                        "slug": "action-cameras"
+                    },
+                    {
+                        "imageUrl": "/img/keyboard_and_mouse.png",
+                        "title": "Клавіатури та миші",
+                        "slug": "micefull"
+                    },
+                    {
+                        "imageUrl": "/img/accessories.png",
+                        "title": "Аксесуари",
+                        "slug": "acsfull"
                     },
                 ];
                 resolve(SectionDao.cacheSections);
@@ -114,32 +114,24 @@ export default class SectionDao {
         const sectionImg = currentSection?.imageUrl || "/img/wide-applefull.png.webp";
 
         return new Promise<SectionType>((resolve, _) => {
-            setTimeout(() => {
+            setTimeout(async () => {
                 // Return dummy products for any valid slug
 
                 if (slug === 'apple') {
+                    // Use the single source of truth from ProductDao
+                    const { allProducts } = await import('../../product/api/ProductDao');
                     resolve({
-                        products: [
-                            {
-                                id: "1", name: "Apple iPhone 17 Pro Max 256GB (Cosmic Orange)",
-                                slug: "apple-iphone-17-pro-max-256gb-orange",
-                                price: 73499, discount: 6050, rating: 2,
-                                imageUrl: "/img/CosmicOrange-1397x1397.png.webp"
-                            },
-                            {
-                                id: "2", name: "Навушники Apple AirPods Pro 3 (MFHP4) (2025)",
-                                slug: "navushnyky-apple-airpods-pro-3",
-                                price: 11899, discount: 2200, rating: 4,
-                                imageUrl: "/img/airpods.png"
-                            },
-                            {
-                                id: "814897", name: "Apple iPhone 15 256GB (Pink)",
-                                slug: "apple-iphone-15-256gb--pink-",
-                                price: 37999, discount: 2800, rating: 3,
-                                imageUrl: "/img/pink (1)-1397x1397.jpeg.webp",
-                                stock: 0
-                            },
-                        ]
+                        // For now, we return all products validation logic or filtering can be added here
+                        // We are filtering for items that look like Apple products based on current mock data
+                        products: allProducts
+                    });
+                    return;
+                }
+
+                if (slug === 'iphone') {
+                    const { allProducts } = await import('../../product/api/ProductDao');
+                    resolve({
+                        products: allProducts.filter(p => p.name.toLowerCase().includes('iphone'))
                     });
                     return;
                 }

@@ -17,8 +17,8 @@ export default function Home() {
 
     return <>
         <section className="hero-section">
-            <h1 className="hero-title">Welcome to 4epuShop</h1>
-            <p className="hero-subtitle">Discover premium products at the best prices. Trade-in your old devices or find repair services.</p>
+            <h1 className="hero-title">Ласкаво просимо до 4epuShop</h1>
+            <p className="hero-subtitle">Відкрийте для себе преміальні продукти за найкращими цінами. Обміняйте старі пристрої або скористайтеся послугами ремонту.</p>
         </section>
 
         <div className="content-container">

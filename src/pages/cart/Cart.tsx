@@ -9,12 +9,12 @@ export default function Cart() {
     return <>
         <div className="cart-header">
             <h1 className="cart-title">
-                <i className="bi bi-cart"></i>&thinsp;My Cart
+                <i className="bi bi-cart"></i>&thinsp;Мій кошик
             </h1>
             <div className="cart-stats">
-                <span>{cart.items.length} items</span>
-                <span>{cart.items.reduce((s, ci) => s + ci.cnt, 0)} total units</span>
-                <span className="cart-stat-highlight">Total: {cart.items.reduce((s, ci) => s + ci.price, 0).toMoney()} UAH</span>
+                <span>{cart.items.length} товарів</span>
+                <span>{cart.items.reduce((s, ci) => s + ci.cnt, 0)} всього одиниць</span>
+                <span className="cart-stat-highlight">Всього: {cart.items.reduce((s, ci) => s + ci.price, 0).toMoney()} грн</span>
             </div>
         </div>
 
