@@ -1,0 +1,50 @@
+.app-modal {
+    background-color: rgba(15, 23, 42, 0.4);
+    /* Slate with opacity */
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2000;
+}
+
+.app-modal-dlg {
+    background-color: var(--surface-color);
+    color: var(--text-primary);
+    width: 30%;
+    min-width: 320px;
+    max-width: 500px;
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.app-modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.app-modal-message {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.app-modal-footer {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+}

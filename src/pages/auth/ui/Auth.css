@@ -1,0 +1,108 @@
+.auth-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--surface-color);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    background: var(--main-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+}
+
+.input-wrapper input {
+    padding-left: 3rem;
+    /* Space for icon */
+}
+
+/* Profile Styles */
+.profile-card {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--surface-hover);
+    margin-bottom: 1.5rem;
+    object-fit: cover;
+}
+
+.profile-name {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+}
+
+.profile-details {
+    text-align: left;
+    background: var(--surface-hover);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 2rem;
+}
+
+.profile-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-row:last-child {
+    border-bottom: none;
+}
+
+.profile-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.profile-value {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 550px) {
+    .auth-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .profile-row {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .profile-value {
+        text-align: right;
+        /* Or left depending on preference, right puts it below label nicely? actually left is better for stacked */
+        text-align: left;
+    }
+}
