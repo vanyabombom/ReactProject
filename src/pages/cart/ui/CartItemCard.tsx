@@ -9,8 +9,7 @@ export default function CartItemCard({ cartItem }: { cartItem: CartItem }) {
     const { cart, setCart, showModal } = useContext(AppContext);
 
     const incClick = () => {
-        // задача: змінити кількість замовлення у {cartItem} та внести зміни
-        // до загального кошику через виклик {setCart}
+
         if (cartItem.product.stock && cartItem.product.stock <= cartItem.cnt) {
             return;
         }
@@ -19,14 +18,10 @@ export default function CartItemCard({ cartItem }: { cartItem: CartItem }) {
         if (item) {
             item.cnt += 1;
             CartDao.calcPrices(newCart);
-            // item.price = item.product.price * item.cnt;
-            // newCart.price = newCart.items.reduce((s,ci) => s + ci.price, 0.0);
             setCart(newCart);
         }
     };
     const decClick = () => {
-        // задача: реалізувати обмеження: кількість не можна зменшити до 0, а також
-        // збільшити понад {stock} якщо його зазначено
         if (cartItem.cnt <= 1) {
             return;
         }

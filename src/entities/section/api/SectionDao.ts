@@ -108,7 +108,6 @@ export default class SectionDao {
     }
 
     static async getSection(slug: string) {
-        // Ensure sections are loaded to get the correct image
         const sections = await SectionDao.getSections();
         const currentSection = sections.find(s => s.slug === slug);
         const sectionImg = currentSection?.imageUrl || "/img/wide-applefull.png.webp";
@@ -158,7 +157,6 @@ export default class SectionDao {
                     return;
                 }
 
-                // Generate dummy products for other categories
                 const dummyProducts = Array.from({ length: 6 }).map((_, i) => ({
                     id: `${slug}-${i}`,
                     name: `${slug.charAt(0).toUpperCase() + slug.slice(1)} Product ${i + 1}`,

@@ -3,7 +3,6 @@
     top: 2rem;
     z-index: 1000;
     margin: 2rem auto 0;
-    /* Added top margin to account for sticky offset */
     max-width: 1200px;
     padding: 0.75rem 2rem;
     display: flex;
@@ -24,7 +23,6 @@
     box-shadow: var(--shadow-lg);
     transform: translateY(-5px);
     margin-top: 1rem;
-    /* Slightly adjust margin when scrolled for smoother transition */
 }
 
 .brand-logo {
@@ -80,7 +78,6 @@
     width: 100%;
 }
 
-/* Custom Search Bar in Header */
 .header-search {
     position: relative;
     display: flex;
@@ -126,14 +123,12 @@
     color: var(--primary-color);
 }
 
-/* Main Content Area */
 main {
     flex: 1;
     width: 100%;
     margin-top: 4rem;
 }
 
-/* Footer */
 .app-footer {
     background: var(--surface-color);
     border-top: 1px solid var(--border-color);
@@ -209,7 +204,6 @@ main {
     font-size: 0.9rem;
 }
 
-/* Responsive Media Queries */
 
 @media (max-width: 1024px) {
     .app-header {

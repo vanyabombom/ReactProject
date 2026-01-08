@@ -34,10 +34,8 @@
 
 .input-wrapper input {
     padding-left: 3rem;
-    /* Space for icon */
 }
 
-/* Profile Styles */
 .profile-card {
     max-width: 600px;
     margin: 0 auto;
@@ -88,7 +86,6 @@
     font-weight: 600;
 }
 
-/* Responsive */
 @media (max-width: 550px) {
     .auth-container {
         margin: 1rem;
@@ -102,7 +99,6 @@
 
     .profile-value {
         text-align: right;
-        /* Or left depending on preference, right puts it below label nicely? actually left is better for stacked */
         text-align: left;
     }
 }

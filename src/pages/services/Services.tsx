@@ -14,7 +14,6 @@ export default function Services() {
             </div>
 
             <div className="services-grid">
-                {/* Repair Service */}
                 <div className="service-card" data-aos="zoom-in" data-aos-delay="0">
                     <div className="icon-wrapper">
                         <i className="bi bi-tools"></i>
@@ -38,7 +37,6 @@ export default function Services() {
                     <button className="book-btn" onClick={() => handleBook("Repair")}>Book Repair</button>
                 </div>
 
-                {/* Setup Service */}
                 <div className="service-card" data-aos="zoom-in" data-aos-delay="100">
                     <div className="icon-wrapper">
                         <i className="bi bi-gear-wide-connected"></i>
@@ -62,7 +60,6 @@ export default function Services() {
                     <button className="book-btn" onClick={() => handleBook("Setup")}>Book Setup</button>
                 </div>
 
-                {/* Consultation */}
                 <div className="service-card" data-aos="zoom-in" data-aos-delay="200">
                     <div className="icon-wrapper">
                         <i className="bi bi-chat-square-text"></i>

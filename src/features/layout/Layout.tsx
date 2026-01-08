@@ -37,11 +37,6 @@ export default function Layout() {
             <Link to="/" className="brand-logo">
                 <img src="/img/black-logo.png" alt="4epuShop Logo" className="logo-img" />
             </Link>
-
-            {/* Search Bar */}
-
-
-            {/* Navigation Actions */}
             <nav className="nav-actions">
                 <Link to="/trade-in" className="nav-link-custom">
                     Trade-In
