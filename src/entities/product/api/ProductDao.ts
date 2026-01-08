@@ -43,7 +43,7 @@ const p7 = {
     stock: 5
 };
 export const allProducts = [p1, p3, p4, p5, p6, p7];
-// 
+
 
 export interface ProductFilters {
     search: string;
@@ -71,7 +71,7 @@ export default class ProductDao {
     }
 
     static getProduct(slugOrId: string): Promise<ProductPageType> {
-        return new Promise(async (resolve, _) => { // async wrapper
+        return new Promise(async (resolve, _) => {
             setTimeout(async () => {
                 const allProducts = [p1, p3, p4, p5, p6, p7];
                 const p = allProducts.find(p => p.slug == slugOrId || p.id == slugOrId);
@@ -82,10 +82,9 @@ export default class ProductDao {
                         recommended: allProducts.filter(x => x.id != p.id)
                     });
                 } else {
-                    // Dynamic product handling
                     const namePart = slugOrId.split('-product-')[0] || "Невідомо";
 
-                    // Try to find image from section
+
                     const { default: SectionDao } = await import('../../section/api/SectionDao');
                     const sections = await SectionDao.getSections();
                     const section = sections.find(s => s.slug === namePart);
@@ -106,7 +105,7 @@ export default class ProductDao {
 
                     resolve({
                         product: dynamicProduct,
-                        recommended: allProducts.slice(0, 4) // Recommend some known products
+                        recommended: allProducts.slice(0, 4)
                     });
                 }
             }, 700);

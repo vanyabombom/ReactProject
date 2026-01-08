@@ -10,9 +10,7 @@ export default function Layout() {
 
 
     useEffect(() => {
-        // @ts-ignore
         if (window.AOS) {
-            // @ts-ignore
             window.AOS.init({
                 duration: 800,
                 once: true,
@@ -27,10 +25,8 @@ export default function Layout() {
                 <img src="/img/black-logo.png" alt="4epuShop Logo" className="logo-img" />
             </Link>
 
-            {/* Search Bar */}
 
 
-            {/* Navigation Actions */}
             <nav className="nav-actions">
                 <Link to="/trade-in" className="nav-link-custom">
                     Trade-In

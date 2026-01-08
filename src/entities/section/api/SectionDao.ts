@@ -108,21 +108,16 @@ export default class SectionDao {
     }
 
     static async getSection(slug: string) {
-        // Ensure sections are loaded to get the correct image
         const sections = await SectionDao.getSections();
         const currentSection = sections.find(s => s.slug === slug);
         const sectionImg = currentSection?.imageUrl || "/img/wide-applefull.png.webp";
 
         return new Promise<SectionType>((resolve, _) => {
             setTimeout(async () => {
-                // Return dummy products for any valid slug
 
                 if (slug === 'apple') {
-                    // Use the single source of truth from ProductDao
                     const { allProducts } = await import('../../product/api/ProductDao');
                     resolve({
-                        // For now, we return all products validation logic or filtering can be added here
-                        // We are filtering for items that look like Apple products based on current mock data
                         products: allProducts
                     });
                     return;
@@ -169,7 +164,7 @@ export default class SectionDao {
                     return;
                 }
 
-                // Generate dummy products for other categories
+
                 const dummyProducts = Array.from({ length: 6 }).map((_, i) => ({
                     id: `${slug}-${i}`,
                     name: `${slug.charAt(0).toUpperCase() + slug.slice(1)} Product ${i + 1}`,

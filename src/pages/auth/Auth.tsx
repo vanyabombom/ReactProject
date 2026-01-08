@@ -86,7 +86,6 @@ function Profile() {
     };
 
     return <div className="profile-dashboard">
-        {/* Sidebar */}
         <div className="dashboard-sidebar">
             <div className="dashboard-card user-summary">
                 <img src={user?.imageUrl} alt={user?.login} className="large-avatar" />
@@ -120,9 +119,7 @@ function Profile() {
             </div>
         </div>
 
-        {/* Main Content */}
         <div className="dashboard-content">
-            {/* Personal Info Section */}
             <div className="dashboard-section-title">
                 <span>Персональна інформація</span>
                 <i className="bi bi-pencil-square" style={{ cursor: 'pointer', color: 'var(--primary-color)' }}></i>
@@ -147,7 +144,6 @@ function Profile() {
                 </div>
             </div>
 
-            {/* Recent Orders Section */}
             <div className="dashboard-section-title">
                 <span>Останні замовлення</span>
                 <span style={{ fontSize: '0.9rem', color: 'var(--primary-color)', cursor: 'pointer' }}>Всі замовлення</span>
